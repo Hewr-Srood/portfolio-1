@@ -1,5 +1,5 @@
 {
-  "cv": "./../HewrCV.pdf",
+  "cv": "https://docs.google.com/document/d/1quR4xL1Fi997-UlNt9eilue4IZgianungzhWbpuIjc4/edit?usp=sharing",
   "navLogo": "./../images/H.png",
   "aboutMe": "I'm a software engineering student and also a junior front-end web developer. Learner and enthusiastic coder utilizing every opportunity to expand my arsenal.I also like robotic as a hobby I use to make alot of them using arduino.",
   "imageSources": {
@@ -47,7 +47,7 @@
       "knowledge": 70
     },
     {
-      "name": "tailwind",
+      "name": "GitHub",
       "logo": "https://img.icons8.com/cute-clipart/64/000000/github.png",
       "knowledge": 70
     }
