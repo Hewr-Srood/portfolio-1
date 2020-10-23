@@ -36,7 +36,11 @@ const AboutMe = () => {
             <button
               className={`rounded mt-5  font-bold border-primaryLights border-2  border-primaryLight transition-all duration-150 w-32 sm:w-48 hover:text-primaryLight text-7thColorLight bg-primaryLight py-2 hover:bg-transparent `}
             >
-              <a href={PersonalInfo.cv} target="_blank">
+              <a
+                href={PersonalInfo.cv}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Preview CV
               </a>
             </button>
