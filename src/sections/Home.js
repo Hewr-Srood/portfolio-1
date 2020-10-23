@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <div
       id="home"
-      className={`flex items-center justify-around h-screen flex-wrap transition-all duration-150  ${
+      className={`flex items-center pt-24 justify-around h-screen flex-wrap transition-all duration-150  ${
         theme ? "bg-tertiaryLight" : "bg-tertiaryDark"
       }
       `}
     >
-      <div className="flex flex-col w-full   sm:w-2/5 justify-between items-center p-5  md:mt-0">
+      <div className="flex flex-col w-full   md:w-2/5 justify-between items-center p-5  md:mt-0">
         <h1
           className={`sm:text-6xl text-5xl ${
             theme ? "text-4thColorLight" : "text-4thColorDark"
@@ -37,7 +37,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className=" sm:w-3/5 w-full">
+      <div className=" md:w-3/5 w-full">
         <img src={"./../images/programmer.png"} alt="my" />
       </div>
     </div>

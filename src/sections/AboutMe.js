@@ -16,10 +16,10 @@ const AboutMe = () => {
     >
       <SectHeader sectionName={"About Me"} />
       <div className=" flex flex-wrap justify-between">
-        <div>
+        <div className="mx-auto w-full   md:w-2/5">
           <img src={PersonalInfo.imageSources.aboutImage} alt="circle" />
         </div>
-        <div className="flex flex-col mx-auto  sm:w-7/12 w-full justify-center items-center p-5  md:mt-0">
+        <div className="flex flex-col mx-auto  w-full    md:w-2/5 justify-center items-center p-5  md:mt-0">
           <p
             className={`${
               theme ? "text-6thColorLight" : "text-7thColorDark"
@@ -27,7 +27,7 @@ const AboutMe = () => {
           >
             {PersonalInfo.aboutMe}
           </p>
-          <div className=" flex  sm:justify-start w-full mt-3 justify-around ">
+          <div className=" flex  w-full mt-3 md:justify-start justify-around ">
             <button
               className={`rounded mt-5 md:mr-5 mr-0 font-bold border-primaryLights border-2  border-primaryLight transition-all duration-150 w-32 sm:w-48 hover:text-7thColorLight text-primaryLight bg-transparent py-2 hover:bg-primaryLight `}
             >

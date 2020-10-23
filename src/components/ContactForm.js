@@ -1,7 +1,27 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./../Context/ThemeContext";
 import { BiHeartCircle } from "react-icons/bi";
+import emailjs from "emailjs-com";
+function sendEmail(e) {
+  e.preventDefault();
 
+  emailjs
+    .sendForm(
+      "Gmail",
+      "template_9qumocp",
+      e.target,
+      "user_Qle82EBJbJ75ae4H35CCz"
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+  e.target.reset();
+}
 const ContactForm = () => {
   const { theme } = useContext(ThemeContext);
 
@@ -15,12 +35,16 @@ const ContactForm = () => {
         {" "}
         Send meesage
       </h2>
-      <div className=" flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0  justify-evenly">
+      <form
+        onSubmit={sendEmail}
+        className=" flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0  justify-evenly"
+      >
         <p className="leading-relaxed mb-5 text-gray-600">
           You can send me your feedback or any suggests{" "}
           <BiHeartCircle className="inline text-red-600" size={20} />
         </p>
         <input
+          name="name"
           className={`bg-white rounded ${
             theme ? "text-5thColorLight" : "text-5thColorDark"
           } border border-gray-400 focus:outline-none focus:border-primaryLight text-base px-4 py-2 mb-4`}
@@ -28,18 +52,20 @@ const ContactForm = () => {
           type="text"
         />
         <input
+          name="email"
           className="bg-white rounded border border-gray-400 focus:outline-none focus:border-primaryLight text-base px-4 py-2 mb-4"
           placeholder="Email"
           type="email"
         />
         <textarea
+          name="message"
           className="bg-white rounded border border-gray-400 focus:outline-none focus:border-primaryLight h-32  text-base px-4 py-2 mb-4 resize-none"
           placeholder="Message"
-        ></textarea>
+        />
         <button className="text-white  bg-primaryLight border-0 py-2 px-6 focus:outline-none focus:border-primaryLight rounded text-lg">
           Button
         </button>
-      </div>
+      </form>
       {/* <div>
         <form className="flex flex-col justify-evenly">
           <label

@@ -9,9 +9,7 @@ const Skills = () => {
   const [animate, setAnimate] = useState(false);
   const { theme } = useContext(ThemeContext);
   window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 1528) {
-      console.log(window.pageYOffset);
-      console.log(animate);
+    if (window.pageYOffset > 1300) {
       setAnimate(true);
     }
   });

@@ -16,7 +16,7 @@ const Ul = styled.ul`
   }
 `;
 
-const RightNav = ({ open, them }) => {
+const RightNav = ({ open, them, handleOpen }) => {
   return (
     <Ul
       open={open}
@@ -37,7 +37,11 @@ const RightNav = ({ open, them }) => {
             transition: { ease: "easeInOut" },
           }}
         >
-          <a className="h-full text-center w-full py-2 px-8" href={list.url}>
+          <a
+            onClick={handleOpen}
+            className="h-full text-center w-full py-2 px-8"
+            href={list.url}
+          >
             {list.name}
           </a>
         </motion.li>
