@@ -4,6 +4,7 @@ import Burger from "./Burger";
 import PersonalInfo from "./../../personalInfo/PersonalInfo.json";
 import { ThemeContext } from "./../../Context/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
+import { Link } from "react-router-dom";
 
 const Nav = styled.nav`
   .logo {
@@ -36,18 +37,16 @@ const Navbar = () => {
           : "bg-secondaryDark"
       }  z-50 h-16 w-full py-0 px-5 flex justify-between items-center`}
     >
-      <div className="flex justify-between items-center">
+      <Link to="/" className="flex justify-between items-center">
         <div className="logo ">
-          <a href="#home">
-            <img src={PersonalInfo.navLogo} alt="" />
-          </a>
+          <img src={PersonalInfo.navLogo} alt="" />
         </div>
-      </div>
+      </Link>
       <DarkModeToggle
         className="mr-16"
         onChange={handleTheme}
         checked={!theme}
-        size={80}
+        size={50}
       />
 
       <Burger them={theme} />

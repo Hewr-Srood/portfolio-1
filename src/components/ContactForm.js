@@ -1,30 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ThemeContext } from "./../Context/ThemeContext";
 import { BiHeartCircle } from "react-icons/bi";
 import emailjs from "emailjs-com";
-function sendEmail(e) {
-  e.preventDefault();
 
-  emailjs
-    .sendForm(
-      "Gmail",
-      "template_9qumocp",
-      e.target,
-      "user_Qle82EBJbJ75ae4H35CCz"
-    )
-    .then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
-  e.target.reset();
-}
 const ContactForm = () => {
   const { theme } = useContext(ThemeContext);
+  const [sentMessage, setSentMessage] = useState(false);
+  const handleSentMessage = () => {
+    setSentMessage(true);
+    setTimeout(() => {
+      setSentMessage(false);
+    }, 1500);
+  };
+  function sendEmail(e) {
+    e.preventDefault();
 
+    emailjs
+      .sendForm(
+        "Gmail",
+        "template_9qumocp",
+        e.target,
+        "user_Qle82EBJbJ75ae4H35CCz"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
+    handleSentMessage();
+    e.target.reset();
+  }
   return (
     <div className=" sm:w-full md:w-4/12 flex flex-col justify-around   ">
       <h2
@@ -50,72 +59,31 @@ const ContactForm = () => {
           } border border-gray-400 focus:outline-none focus:border-primaryLight text-base px-4 py-2 mb-4`}
           placeholder="Name"
           type="text"
+          required
         />
         <input
           name="email"
           className="bg-white rounded border border-gray-400 focus:outline-none focus:border-primaryLight text-base px-4 py-2 mb-4"
           placeholder="Email"
           type="email"
+          required
         />
         <textarea
           name="message"
           className="bg-white rounded border border-gray-400 focus:outline-none focus:border-primaryLight h-32  text-base px-4 py-2 mb-4 resize-none"
           placeholder="Message"
+          required
         />
-        <button className="text-white  bg-primaryLight border-0 py-2 px-6 focus:outline-none focus:border-primaryLight rounded text-lg">
-          Button
+        <button className="text-white  bg-primaryLight border-0 py-2 px-6  focus:border-primaryLight rounded text-lg">
+          Send
         </button>
       </form>
-      {/* <div>
-        <form className="flex flex-col justify-evenly">
-          <label
-            htmlFor="name"
-            className={`text-xl sm:text-2xl mb-2 font-extrabold ${
-              
-            }`}
-          >
-            Name
-          </label>
-          <input
-            type="text"
-            placeholder="Type your name "
-            id="name"
-            className="ml-3 mb-2 py-2 px-5 rounded"
-          />
-          <label
-            htmlFor="email "
-            className={`text-xl sm:text-2xl mb-2 font-extrabold ${
-              theme ? "text-5thColorLight" : "text-5thColorDark"
-            }`}
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            placeholder="Type your email "
-            id="email"
-            className="ml-3 mb-2 py-2 px-5 rounded"
-          />
-          <label
-            htmlFor="message"
-            className={`text-xl sm:text-2xl mb-2 font-extrabold ${
-              theme ? "text-5thColorLight" : "text-5thColorDark"
-            }`}
-          >
-            Message
-          </label>
-          <textarea
-            name=""
-            id="Message"
-            cols="30"
-            rows="5"
-            className="ml-3 mb-5"
-          />
-          <button className="rounded border-4  font-bold border-primaryLights  border-primaryLight transition-all duration-150  w-40  text-white bg-primaryLight py-3 hover:bg-transparent hover:text-primaryLight">
-            Send message
-          </button>
-        </form>
-      </div>*/}
+
+      {sentMessage && (
+        <h1 className=" bg-green-400 text-white font-bold py-2 text-center rounded absolute sm:w-3/12 w-full     animate-bounce bottom-0 z-50  right-0  ">
+          Sent Successfully Thanks <span className="text-red-400">❤</span>
+        </h1>
+      )}
     </div>
   );
 };

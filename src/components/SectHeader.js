@@ -19,6 +19,7 @@ const SectHeader = ({ sectionName }) => {
       className="cursor-pointer   mb-12 mx-auto flex flex-col items-center "
     >
       <h1
+        style={{ fontFamily: "Pacifico, cursive" }}
         className={` text-5xl inline-block mr-auto  ${
           theme ? "text-4thColorLight" : "text-5thColorDark"
         }   font-extrabold`}

@@ -1,75 +1,101 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PersonalInfo from "./../personalInfo/PersonalInfo.json";
 import SectHeader from "./../components/SectHeader";
 import { ThemeContext } from "./../Context/ThemeContext";
 import { motion } from "framer-motion";
-import CountUp from "react-countup";
+import { SemipolarLoading } from "react-loadingg";
 
 const Skills = () => {
-  const [animate, setAnimate] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { theme } = useContext(ThemeContext);
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 1300) {
-      setAnimate(true);
-    }
-  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
 
   return (
-    <div
-      id="skills"
-      className={` min-h-screen flex flex-col items-center justify-center ${
-        theme
-          ? " bg-tertiaryLight text-4thColorLight"
-          : "bg-tertiaryDark text-5thColorDark"
-      }`}
-    >
-      <div className="flex ">
-        <SectHeader sectionName={"Skills"} />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 h-1/2 w-4/5 justify-items-stretch ">
-        {PersonalInfo.skills.map((element, index) => {
-          return (
-            <>
-              <div
-                key={`${element.name}-${index}`}
-                className="flex flex-col w-4/5 mt-5 mb-5 justify-self-center "
-              >
-                <div className="flex items-end mb-4">
-                  <motion.img
-                    initial={{ rotate: 0 }}
-                    className="transition-all  ease-linear   duration-150 transform  "
-                    whileHover={{ rotate: [15, -15, 0] }}
-                    src={element.logo}
-                    alt={element.name + " logo"}
-                  />
-                </div>
-                <div className="flex h-8 items-center w-full bg-4thColorLight rounded">
-                  {animate && (
+    <>
+      {loading && <SemipolarLoading />}
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className={` min-h-screen flex flex-col items-center justify-center ${
+          theme
+            ? " bg-tertiaryLight text-4thColorLight"
+            : "bg-tertiaryDark text-5thColorDark"
+        } ${loading ? " hidden" : " block"}`}
+      >
+        <div className="flex ">
+          <SectHeader sectionName={"Skills"} />
+        </div>
+        <div className="grid grid-cols-2 gap-1 w-full">
+          {PersonalInfo.skills.map((element, index) => {
+            return (
+              <>
+                <div
+                  key={`${element.name}-${index}`}
+                  className="flex flex-col w-4/5  mb-5 justify-self-center "
+                >
+                  <div className="flex items-center mb-4">
+                    <motion.img
+                      drag="x"
+                      dragConstraints={{ left: -5, right: 50 }}
+                      initial={{ rotate: 0 }}
+                      className="transition-all  ease-linear   duration-150 transform  "
+                      whileHover={{ rotate: [15, -15, 0] }}
+                      src={`${
+                        window.innerWidth < 480 ? element.smLogo : element.logo
+                      }`}
+                      alt={element.name + " logo"}
+                    />
+                    <h1
+                      className=" font-bold sm:text-base text-xs"
+                      style={{ fontFamily: "Pacifico, cursive" }}
+                    >
+                      {element.name}
+                    </h1>
+                  </div>
+                  <div
+                    className={`flex py-1 items-center w-full  rounded ${
+                      theme ? " bg-4thColorLight" : " bg-7thColorDark"
+                    }`}
+                  >
                     <>
-                      <motion.div
-                        style={{ transition: ` all ease .8s` }}
-                        initial={{ width: "0px" }}
-                        animate={{ width: `${element.knowledge}%` }}
-                        className="flex ml-1 justify-center items-center bg-primaryDark rounded transition-all duration-150"
+                      <div
+                        style={{ width: `${element.knowledge}%` }}
+                        className="flex mx-1 sm:py-1 py-0 h-full justify-center items-center bg-primaryDark rounded  "
                         key={index}
                       >
-                        <h1 className="font-bold text-white">{element.name}</h1>
-                      </motion.div>
-                      <p
-                        className=" font-bold text-center text-white"
-                        style={{ width: `${100 - element.knowledge}%` }}
-                      >
-                        <CountUp start={0} end={element.knowledge} />%
-                      </p>
+                        <motion.div
+                          transition={{ duration: 0.8, delay: 1.5 }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          className={`font-bold    text-xs ${
+                            theme ? " text-4thColorLight" : " text-4thColorDark"
+                          }`}
+                          style={{
+                            fontSize: `${
+                              window.innerWidth <= 320 ? "0.6rem" : "0.75rem"
+                            }`,
+                            fontFamily: "Pacifico, cursive",
+                          }}
+                        >
+                          {element.knowledge} %
+                        </motion.div>
+                      </div>
                     </>
-                  )}
+                  </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
-    </div>
+              </>
+            );
+          })}
+        </div>
+      </motion.div>
+    </>
   );
 };
 

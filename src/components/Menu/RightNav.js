@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const lists = [
-  { name: "Home", url: "#home" },
-  { name: "About me", url: "#aboutme" },
-  { name: "Skills", url: "#skills" },
-  { name: "Projects", url: "#projects" },
-  { name: "Contact", url: "#contact" },
+  { name: "Home", url: "/" },
+  { name: "Amazing ", url: "/amazing" },
+  { name: "Skills", url: "/skills" },
+  { name: "Projects", url: "/projects" },
+  { name: "Contact", url: "/contact" },
 ];
 const Ul = styled.ul`
   width: 300px;
@@ -37,13 +38,13 @@ const RightNav = ({ open, them, handleOpen }) => {
             transition: { ease: "easeInOut" },
           }}
         >
-          <a
+          <Link
             onClick={handleOpen}
             className="h-full text-center w-full py-2 px-8"
-            href={list.url}
+            to={list.url}
           >
             {list.name}
-          </a>
+          </Link>
         </motion.li>
       ))}
     </Ul>

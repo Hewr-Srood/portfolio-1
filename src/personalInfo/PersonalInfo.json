@@ -1,54 +1,71 @@
 {
   "cv": "https://docs.google.com/document/d/1quR4xL1Fi997-UlNt9eilue4IZgianungzhWbpuIjc4/edit?usp=sharing",
   "navLogo": "./../images/H.png",
-  "aboutMe": "I'm a software engineering student and also a junior front-end web developer. Learner and enthusiastic coder utilizing every opportunity to expand my arsenal.I also like robotic as a hobby I use to make alot of them using arduino.",
+  "aboutMe": "I'm Hewr a software engineering student and freelance web developer, i'll be more than happy to take your project and make your ideas real.",
   "imageSources": {
     "aboutImage": "./../images/programmer.svg"
   },
   "skills": [
     {
-      "name": "Java Script",
-      "logo": "https://img.icons8.com/dusk/64/000000/javascript-logo.png",
-      "knowledge": 70
+      "name": "HTML5 ",
+      "logo": "https://img.icons8.com/color/64/000000/html-5.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/html-5.png",
+      "knowledge": 100
     },
     {
-      "name": "HTML5",
-      "logo": "https://img.icons8.com/dusk/64/000000/html-5.png",
-      "knowledge": 75
+      "name": "CSS 100%",
+      "logo": "https://img.icons8.com/color/64/000000/css3.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/css3.png",
+      "knowledge": 100
     },
+
     {
-      "name": "CSS",
-      "logo": "https://img.icons8.com/dusk/64/000000/css3.png",
-      "knowledge": 50
-    },
-    {
-      "name": "Bootstrap",
+      "name": "Bootstrap ",
       "logo": "https://img.icons8.com/color/64/000000/bootstrap.png",
-      "knowledge": 50
+      "smLogo": "https://img.icons8.com/color/40/000000/bootstrap.png",
+      "knowledge": 100
+    },
+    {
+      "name": "Material UI ",
+      "logo": "https://img.icons8.com/color/48/000000/material-ui.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/material-ui.png",
+      "knowledge": 100
+    },
+    {
+      "name": "Java Script",
+      "logo": "https://img.icons8.com/color/64/000000/javascript.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/javascript.png",
+      "knowledge": 90
     },
     {
       "name": "React",
-      "logo": "https://img.icons8.com/bubbles/90/000000/react.png",
-      "knowledge": 55
+      "logo": "https://img.icons8.com/color/64/000000/react-native.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/react-native.png",
+      "knowledge": 85
+    },
+    {
+      "name": "React Native",
+      "logo": "https://img.icons8.com/color/64/000000/react-native.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/react-native.png",
+      "knowledge": 60
     },
     {
       "name": "Java",
-      "logo": "https://img.icons8.com/color/90/000000/java-coffee-cup-logo.png",
-      "knowledge": 65
+      "logo": "https://img.icons8.com/color/64/000000/java-coffee-cup-logo.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png",
+      "knowledge": 50
     },
     {
       "name": "Adobe XD",
-      "logo": "https://img.icons8.com/cute-clipart/64/000000/adobe-xd.png",
-      "knowledge": 70
+      "logo": "https://img.icons8.com/color/64/000000/adobe-xd.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/adobe-xd.png",
+      "knowledge": 75
     },
-    {
-      "name": "Mterial UI",
-      "logo": "https://img.icons8.com/color/48/000000/material-ui.png",
-      "knowledge": 70
-    },
+
     {
       "name": "GitHub",
-      "logo": "https://img.icons8.com/cute-clipart/64/000000/github.png",
+      "logo": "https://img.icons8.com/color/64/000000/github--v1.png",
+      "smLogo": "https://img.icons8.com/color/40/000000/github--v1.png",
       "knowledge": 70
     }
   ],
