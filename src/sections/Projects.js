@@ -4,6 +4,7 @@ import PersonalInfo from "./../personalInfo/PersonalInfo.json";
 import SectHeader from "./../components/SectHeader";
 import { ThemeContext } from "./../Context/ThemeContext";
 import { BoxLoading } from "react-loadingg";
+import { motion } from "framer-motion";
 
 const projects = PersonalInfo.projects;
 
@@ -21,13 +22,17 @@ const Projects = () => {
     <>
       {loading && <BoxLoading />}
       {!loading && (
-        <div
-          className={` top-0 w-full  pt-12 min-h-screen h-fitContent flex items-center  pb-2 flex-col ${
-            theme ? "bg-4thColorDark" : "bg-secondaryDark"
-          }  justify-evenly`}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className={` min-h-screen sm:mt-0 pt-16  flex flex-col items-center justify-center ${theme
+            ? " bg-tertiaryLight text-4thColorLight"
+            : "bg-tertiaryDark text-5thColorDark"
+            } ${loading ? " hidden" : " block"}`}
         >
-          {" "}
-          <SectHeader sectionName={"Projects"} />
+
+          <SectHeader sectionName={"Projects"} className="" />
           <div className="min-h-screen flex container justify-around items-start flex-wrap">
             {projects.map((project, i) => (
               <Modal
@@ -40,7 +45,8 @@ const Projects = () => {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
+
       )}
     </>
   );

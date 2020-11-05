@@ -23,11 +23,10 @@ const Skills = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.5 }}
-        className={` min-h-screen flex flex-col items-center justify-center ${
-          theme
+        className={` min-h-screen sm:mt-0 mt-5 flex flex-col items-center justify-center ${theme
             ? " bg-tertiaryLight text-4thColorLight"
             : "bg-tertiaryDark text-5thColorDark"
-        } ${loading ? " hidden" : " block"}`}
+          } ${loading ? " hidden" : " block"}`}
       >
         <div className="flex ">
           <SectHeader sectionName={"Skills"} />
@@ -47,9 +46,8 @@ const Skills = () => {
                       initial={{ rotate: 0 }}
                       className="transition-all  ease-linear   duration-150 transform  "
                       whileHover={{ rotate: [15, -15, 0] }}
-                      src={`${
-                        window.innerWidth < 480 ? element.smLogo : element.logo
-                      }`}
+                      src={`${window.innerWidth < 480 ? element.smLogo : element.logo
+                        }`}
                       alt={element.name + " logo"}
                     />
                     <h1
@@ -60,9 +58,8 @@ const Skills = () => {
                     </h1>
                   </div>
                   <div
-                    className={`flex py-1 items-center w-full  rounded ${
-                      theme ? " bg-4thColorLight" : " bg-7thColorDark"
-                    }`}
+                    className={`flex py-1 items-center w-full  rounded ${theme ? " bg-4thColorLight" : " bg-7thColorDark"
+                      }`}
                   >
                     <>
                       <div
@@ -74,13 +71,11 @@ const Skills = () => {
                           transition={{ duration: 0.8, delay: 1.5 }}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          className={`font-bold    text-xs ${
-                            theme ? " text-4thColorLight" : " text-4thColorDark"
-                          }`}
+                          className={`font-bold    text-xs ${theme ? " text-4thColorLight" : " text-4thColorDark"
+                            }`}
                           style={{
-                            fontSize: `${
-                              window.innerWidth <= 320 ? "0.6rem" : "0.75rem"
-                            }`,
+                            fontSize: `${window.innerWidth <= 320 ? "0.6rem" : "0.75rem"
+                              }`,
                             fontFamily: "Pacifico, cursive",
                           }}
                         >

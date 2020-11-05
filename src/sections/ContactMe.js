@@ -24,11 +24,11 @@ const ContactMe = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
+
         >
           <div
-            className={` top-0 w-full  sm:pb-0 pb-5   pt-12 min-h-screen h-fitContent flex items-center   flex-col p-5 absolute   ${
-              theme ? "bg-tertiaryLight" : "bg-tertiaryDark"
-            }  justify-evenly`}
+            className={` sm:mt-0 mt-5 top-0 w-full  sm:pb-0 pb-5   pt-12 min-h-screen h-fitContent  flex items-center   flex-col p-5 absolute   ${theme ? "bg-tertiaryLight" : "bg-tertiaryDark"
+              }  justify-evenly`}
           >
             <SectHeader sectionName={"Contact me"} />
 
